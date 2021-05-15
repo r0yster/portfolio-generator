@@ -135,13 +135,13 @@ Add a New Project
 };
 
 promptUser()
-  .then(answers => console.log(answers))
-  .then(projectData => {
-    portfolioData.projects.push(projectData);
-    if (projectData.confirmAddProject) {
-      return promptProject(portfolioData);
-    } else {
-      return portfolioData;
-    }
-  })
-  .then(projectAnswers => console.log(projectAnswers));
+  .then(promptProject)
+  .then(portfolioData => {
+    console.log(portfolioData);
+    // will be uncommented in lesson 4
+    // const pageHTML = generatePage(portfolioData);
+    // fs.writeFile('./index.html', pageHTML, err => {
+    //   if (err) throw new Error(err);
+    //   console.log('Page created! Check out index.html in this directory to see it!');
+    // });
+  });
